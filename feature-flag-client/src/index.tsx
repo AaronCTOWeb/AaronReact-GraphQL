@@ -11,16 +11,19 @@ import { LoginScreen } from './screens/login';
 import { DashboardScreen } from './screens/dashboard';
 
 import './index.css';
+import FeatureFlagProvider from './contexts/FeatureFlagContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Switch>
-        <Route exact path="/login" component={LoginScreen} />
-        <Route exact path="/dashboard" component={DashboardScreen} />
-        <Route component={() => <Redirect to="/login" />} />
-      </Switch>
-    </Router>
+    <FeatureFlagProvider>
+      <Router>
+        <Switch>
+          <Route exact path="/login" component={LoginScreen} />
+          <Route exact path="/dashboard" component={DashboardScreen} />
+          <Route component={() => <Redirect to="/login" />} />
+        </Switch>
+      </Router>
+    </FeatureFlagProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
