@@ -1,26 +1,13 @@
-import React from 'react';
-import {
-  Route,
-  Switch,
-  Redirect,
-  BrowserRouter as Router,
-} from "react-router-dom";
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./app";
+import { ErrorBoundary } from "react-error-boundary";
 
-import { LoginScreen } from './screens/login';
-import { DashboardScreen } from './screens/dashboard';
-
-import './index.css';
+import "./index.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Switch>
-        <Route exact path="/login" component={LoginScreen} />
-        <Route exact path="/dashboard" component={DashboardScreen} />
-        <Route component={() => <Redirect to="/login" />} />
-      </Switch>
-    </Router>
+    <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
