@@ -1,4 +1,6 @@
 import React from 'react';
+import { FeatureFlagContext } from '../contexts/FeatureFlagContext';
+import { detailsCtaFlagKey } from '../feature-flag-config';
 
 // Problem: 
 //     This should be coloured based on FF value
@@ -6,6 +8,10 @@ import React from 'react';
 //     details-section-cta-colour
 // Setup: 
 //     Fill background color with flag value.
-export const RequestReviewButton = () => (
-  <button>Request doctor review</button>
-)
+export const RequestReviewButton = () => {
+  const { getFlagValueForKey } = React.useContext(FeatureFlagContext);
+
+  const buttonBackgroundColor = getFlagValueForKey(detailsCtaFlagKey, "") as string;
+  return (
+  <button style={{ backgroundColor: buttonBackgroundColor }}>Request doctor review</button>
+)};
