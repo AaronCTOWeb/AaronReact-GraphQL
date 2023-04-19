@@ -1,14 +1,19 @@
-import React from 'react';
-import { MedicationDetails } from '../components/medication-details';
-import { PageLayout } from '../components/page-layout';
-import { useMedication, useUser } from '../mock-data';
+import React, { useContext } from "react";
+import { MedicationDetails } from "../components/medication-details";
+import { PageLayout } from "../components/page-layout";
+import { useMedication, useUser } from "../mock-data";
+import { FlagContext } from "../App";
 
 export const DashboardScreen = () => {
   const user = useUser();
   const medication = useMedication();
 
+  // get the flag for rendered promotionalBanner in the login and dashboard
+  const { generalRender } = useContext(FlagContext);
+
   return (
-    <PageLayout className="dashboard">
+    // pass the general-render-launch-banner flag value as child
+    <PageLayout className="dashboard" promotionalBannerStatus={generalRender}>
       <h1>Dashboard</h1>
       <div className="dashboard-details">
         <h3>Your information</h3>
@@ -29,4 +34,4 @@ export const DashboardScreen = () => {
       </div>
     </PageLayout>
   );
-}
+};

@@ -55,3 +55,18 @@ button {
 .dashboard > .dashboard-details {
   width: 500px;
 }
+
+.btn-blue{
+  background-color: blue;
+  color: white;
+}
+.btn-red{
+  background-color: red;
+  color: white;
+
+}
+.btn-green{
+  background-color: green;
+  color: white;
+
+}
