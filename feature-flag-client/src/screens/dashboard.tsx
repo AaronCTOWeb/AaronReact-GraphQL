@@ -1,9 +1,9 @@
-import React from 'react';
 import { MedicationDetails } from '../components/medication-details';
 import { PageLayout } from '../components/page-layout';
 import { useMedication, useUser } from '../mock-data';
 
 export const DashboardScreen = () => {
+
   const user = useUser();
   const medication = useMedication();
 
@@ -29,4 +29,4 @@ export const DashboardScreen = () => {
       </div>
     </PageLayout>
   );
-}
+};
